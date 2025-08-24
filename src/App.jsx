@@ -1,17 +1,26 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
-import ProductCard from './components/productCard'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminPage from './pages/adminPage.jsx'
+import HomePage from './pages/homePage.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>Madara Perera</h1>
-      <ProductCard name="Apple ipad" price="$499" image="https://www.apple.com/assets-www/en_WW/ipad/product_tile/xlarge/ipad_pro_1df5448cd_2x.png"/>
-      <ProductCard name="Macbook Pro" price="$1499" image="https://www.apple.com/v/macbook-pro/as/images/overview/contrast/product_tile_mbp_14_16__f759zoojn1qy_large_2x.png"/>
+   <BrowserRouter>
+   <div className='w-full h-[100vh] '>
+
+    <Routes path="/">
+      <Route path="/*" element={<HomePage/>}/>
+      <Route path="/register" element={<h1>Register page</h1>}/>
+      <Route path="/admin/*" element={<AdminPage/>}/>
       
-    </>
+
+    </Routes>
+
+   </div>
+   </BrowserRouter>
   )
 }
 
